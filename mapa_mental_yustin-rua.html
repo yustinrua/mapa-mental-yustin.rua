@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Mapa Conceptual Épico</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle at center, #0f172a, #020617);
+    color:white;
+    overflow:hidden;
+}
+
+/* CONTENEDOR */
+.container{
+    position:relative;
+    width:100%;
+    height:100vh;
+}
+
+/* CAJAS */
+.box{
+    position:absolute;
+    width:240px;
+    padding:15px;
+    border-radius:20px;
+    text-align:center;
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.1);
+    box-shadow:0 10px 40px rgba(0,0,0,0.5);
+    opacity:0;
+    transform: translateY(40px);
+    animation: fadeUp 1s forwards;
+}
+
+.box:hover{
+    transform: scale(1.07);
+    box-shadow:0 0 25px rgba(72,149,239,0.8);
+}
+
+/* ANIMACIÓN APARICIÓN */
+@keyframes fadeUp{
+    to{
+        opacity:1;
+        transform: translateY(0);
+    }
+}
+
+/* COLORES */
+.center{background: linear-gradient(135deg,#3b82f6,#06b6d4);}
+.green{background: linear-gradient(135deg,#10b981,#22c55e);}
+.orange{background: linear-gradient(135deg,#f59e0b,#f97316);}
+.yellow{background: linear-gradient(135deg,#fde047,#facc15); color:black;}
+
+/* POSICIONES */
+.center-box{ top:40px; left:50%; transform:translateX(-50%); animation-delay:0.2s;}
+
+.poblacion{ top:180px; left:100px; animation-delay:0.5s;}
+.territorio{ top:180px; left:50%; transform:translateX(-50%); animation-delay:0.7s;}
+.soberania{ top:180px; right:100px; animation-delay:0.9s;}
+
+.poder{ top:380px; left:100px; animation-delay:1.2s;}
+.fines{ top:380px; left:50%; transform:translateX(-50%); animation-delay:1.4s;}
+.social{ top:380px; right:100px; animation-delay:1.6s;}
+
+.sub1{ top:600px; left:50px; animation-delay:2s;}
+.sub2{ top:600px; left:280px; animation-delay:2.2s;}
+.sub3{ top:600px; left:510px; animation-delay:2.4s;}
+
+/* SVG LÍNEAS */
+svg{
+    position:absolute;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+}
+
+.line{
+    stroke:#38bdf8;
+    stroke-width:2;
+    fill:none;
+    stroke-dasharray:500;
+    stroke-dashoffset:500;
+    animation: drawLine 2s forwards;
+}
+
+@keyframes drawLine{
+    to{
+        stroke-dashoffset:0;
+    }
+}
+
+/* TEXTOS */
+.label{
+    position:absolute;
+    font-size:13px;
+    color:#94a3b8;
+    opacity:0;
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn{
+    to{opacity:1;}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- SVG LÍNEAS -->
+<svg>
+
+<line x1="50%" y1="100" x2="50%" y2="180" class="line"/>
+
+<line x1="50%" y1="260" x2="20%" y2="260" class="line"/>
+<line x1="50%" y1="260" x2="50%" y2="260" class="line"/>
+<line x1="50%" y1="260" x2="80%" y2="260" class="line"/>
+
+<line x1="20%" y1="260" x2="20%" y2="380" class="line"/>
+<line x1="50%" y1="260" x2="50%" y2="380" class="line"/>
+<line x1="80%" y1="260" x2="80%" y2="380" class="line"/>
+
+<line x1="20%" y1="480" x2="20%" y2="600" class="line"/>
+<line x1="20%" y1="600" x2="35%" y2="600" class="line"/>
+
+</svg>
+
+<!-- NODOS -->
+
+<div class="box center center-box">
+<h3>Estado Colombiano</h3>
+</div>
+
+<div class="box green poblacion">
+<b>Población</b><br>Personas<br>Diversidad<br>Derechos
+</div>
+
+<div class="box green territorio">
+<b>Territorio</b><br>Suelo<br>Mar<br>Aire
+</div>
+
+<div class="box green soberania">
+<b>Soberanía</b><br>Poder del pueblo
+</div>
+
+<div class="box orange poder">
+<b>Poder Público</b><br>Se divide en
+</div>
+
+<div class="box orange fines">
+<b>Fines del Estado</b><br>Justicia<br>Paz<br>Derechos
+</div>
+
+<div class="box orange social">
+<b>Estado Social</b><br>Dignidad<br>Igualdad
+</div>
+
+<div class="box yellow sub1">
+<b>Legislativa</b><br>Senado<br>Cámara
+</div>
+
+<div class="box yellow sub2">
+<b>Ejecutiva</b><br>Presidente<br>Ministros
+</div>
+
+<div class="box yellow sub3">
+<b>Judicial</b><br>Cortes<br>Jueces
+</div>
+
+<!-- LABELS -->
+<div class="label" style="top:140px; left:48%; animation-delay:1s;">
+se compone de
+</div>
+
+<div class="label" style="top:520px; left:180px; animation-delay:2s;">
+se divide en
+</div>
+
+</div>
+
+</body>
+</html>
